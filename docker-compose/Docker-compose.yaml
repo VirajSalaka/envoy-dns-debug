@@ -1,0 +1,34 @@
+version: '3'
+services:
+  udpproxy.com:
+    image: vsalaka/simple_udp_proxy:latest
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.6
+  debugtools:
+    image: mirage20/k8s-debug-tools
+    networks:
+      - mynetwork
+  greeterbe:
+    image: wso2inc/greeter
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.0.5
+  envoy:
+    image: envoyproxy/envoy:v1.24.7
+    command: -c /etc/envoy/envoy.yaml -l trace
+    # command: -c /etc/envoy/envoy.yaml --component-log-level conn_handler:trace,connection:trace,client:trace
+    volumes:
+      - ./envoy/envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+      - "10000:9080"
+      - "9901:9901"
+    networks:
+      - mynetwork     
+networks:
+  mynetwork:
+    name: mynetwork
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+    
