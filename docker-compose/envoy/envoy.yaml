@@ -38,6 +38,7 @@ static_resources:
       connect_timeout: 0.25s
       type: STRICT_DNS
       lb_policy: ROUND_ROBIN
+      dns_refresh_rate: "5s"
       load_assignment:
         cluster_name: greeter_service
         endpoints:
@@ -47,13 +48,40 @@ static_resources:
                     socket_address:
                       address: run.mocky.io
                       port_value: 80
-      # Add custom DNS resolver here
-      dns_resolvers:
-        - socket_address:
-            # address: 8.8.8.8  # Google DNS
-            address: 172.20.0.6
-            port_value: 14520
-      respect_dns_ttl: true                
+      # # Add custom DNS resolver here
+      # typed_dns_resolver_config:
+      #   name: envoy.network.dns_resolver.cares
+      #   typed_config:
+      #     "@type": type.googleapis.com/envoy.extensions.network.dns_resolver.cares.v3.CaresDnsResolverConfig
+      #     resolvers:
+      #       - socket_address:
+      #           address: 172.20.0.6
+      #           port_value: 14520 
+      #     udp_max_queries: 1     
+    - name: greeter_service_2
+      connect_timeout: 0.25s
+      type: STRICT_DNS
+      lb_policy: ROUND_ROBIN
+      dns_refresh_rate: "5s"
+      load_assignment:
+        cluster_name: greeter_service
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address:
+                      address: httpbin.org
+                      port_value: 80
+      # # Add custom DNS resolver here
+      # typed_dns_resolver_config:
+      #   name: envoy.network.dns_resolver.cares
+      #   typed_config:
+      #     "@type": type.googleapis.com/envoy.extensions.network.dns_resolver.cares.v3.CaresDnsResolverConfig
+      #     resolvers:
+      #       - socket_address:
+      #           address: 172.20.0.6
+      #           port_value: 14520 
+      #     udp_max_queries: 1            
 
 admin:
   access_log_path: /dev/stdout

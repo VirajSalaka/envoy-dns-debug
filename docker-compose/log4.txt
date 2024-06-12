@@ -1,0 +1,635 @@
+udpproxy.com-1  | ['Udp_Proxy established'] ['input port 14520 and forwards incoming messages to ports starting from 53']
+udpproxy.com-1  | Exception in thread Thread-1:
+udpproxy.com-1  | Traceback (most recent call last):
+udpproxy.com-1  |   File "/usr/local/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+udpproxy.com-1  |     self.run()
+udpproxy.com-1  |   File "/usr/local/lib/python3.12/threading.py", line 1431, in run
+udpproxy.com-1  |     self.function(*self.args, **self.kwargs)
+udpproxy.com-1  |   File "/usr/src/app/simple-udp-proxy.py", line 81, in thread_receive
+udpproxy.com-1  |     self.receive(self.BUF_SIZE)
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:391] initializing epoch 0 (base id=0, hot restart version=11.120)
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:393] statically linked extensions:
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.thrift_proxy.protocols: auto, binary, binary/non-strict, compact, twitter
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.grpc_credentials: envoy.grpc_credentials.aws_iam, envoy.grpc_credentials.default, envoy.grpc_credentials.file_based_metadata
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.tracers: envoy.dynamic.ot, envoy.tracers.datadog, envoy.tracers.dynamic_ot, envoy.tracers.opencensus, envoy.tracers.opentelemetry, envoy.tracers.skywalking, envoy.tracers.xray, envoy.tracers.zipkin, envoy.zipkin
+udpproxy.com-1  |   File "/usr/src/app/simple-udp-proxy.py", line 68, in receive
+udpproxy.com-1  |     data, addr = self.socket.recvfrom(buff_size)
+udpproxy.com-1  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+udpproxy.com-1  | BlockingIOError: [Errno 11] Resource temporarily unavailable
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.upstream_options: envoy.extensions.upstreams.http.v3.HttpProtocolOptions, envoy.upstreams.http.http_protocol_options
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.stats_sinks: envoy.dog_statsd, envoy.graphite_statsd, envoy.metrics_service, envoy.stat_sinks.dog_statsd, envoy.stat_sinks.graphite_statsd, envoy.stat_sinks.hystrix, envoy.stat_sinks.metrics_service, envoy.stat_sinks.statsd, envoy.stat_sinks.wasm, envoy.statsd
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.quic.proof_source: envoy.quic.proof_source.filter_chain
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.transport_sockets.downstream: envoy.transport_sockets.alts, envoy.transport_sockets.quic, envoy.transport_sockets.raw_buffer, envoy.transport_sockets.starttls, envoy.transport_sockets.tap, envoy.transport_sockets.tcp_stats, envoy.transport_sockets.tls, raw_buffer, starttls, tls
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.transport_sockets.upstream: envoy.transport_sockets.alts, envoy.transport_sockets.http_11_proxy, envoy.transport_sockets.internal_upstream, envoy.transport_sockets.quic, envoy.transport_sockets.raw_buffer, envoy.transport_sockets.starttls, envoy.transport_sockets.tap, envoy.transport_sockets.tcp_stats, envoy.transport_sockets.tls, envoy.transport_sockets.upstream_proxy_protocol, raw_buffer, starttls, tls
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.retry_host_predicates: envoy.retry_host_predicates.omit_canary_hosts, envoy.retry_host_predicates.omit_host_metadata, envoy.retry_host_predicates.previous_hosts
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.http.stateful_session: envoy.http.stateful_session.cookie, envoy.http.stateful_session.header
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.formatter: envoy.formatter.metadata, envoy.formatter.req_without_query
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.compression.decompressor: envoy.compression.brotli.decompressor, envoy.compression.gzip.decompressor, envoy.compression.zstd.decompressor
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.rbac.matchers: envoy.rbac.matchers.upstream_ip_port
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.http.input: envoy.matching.inputs.destination_ip, envoy.matching.inputs.destination_port, envoy.matching.inputs.direct_source_ip, envoy.matching.inputs.dns_san, envoy.matching.inputs.request_headers, envoy.matching.inputs.request_trailers, envoy.matching.inputs.response_headers, envoy.matching.inputs.response_trailers, envoy.matching.inputs.server_name, envoy.matching.inputs.source_ip, envoy.matching.inputs.source_port, envoy.matching.inputs.source_type, envoy.matching.inputs.subject, envoy.matching.inputs.uri_san
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.dubbo_proxy.protocols: dubbo
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   network.connection.client: default, envoy_internal
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.http.original_ip_detection: envoy.http.original_ip_detection.custom_header, envoy.http.original_ip_detection.xff
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.config.validators: envoy.config.validators.minimum_clusters, envoy.config.validators.minimum_clusters_validator
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.filters.listener: envoy.filters.listener.http_inspector, envoy.filters.listener.original_dst, envoy.filters.listener.original_src, envoy.filters.listener.proxy_protocol, envoy.filters.listener.tls_inspector, envoy.listener.http_inspector, envoy.listener.original_dst, envoy.listener.original_src, envoy.listener.proxy_protocol, envoy.listener.tls_inspector
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.common_inputs: envoy.matching.common_inputs.environment_variable
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.filters.network: envoy.echo, envoy.ext_authz, envoy.filters.network.connection_limit, envoy.filters.network.direct_response, envoy.filters.network.dubbo_proxy, envoy.filters.network.echo, envoy.filters.network.ext_authz, envoy.filters.network.http_connection_manager, envoy.filters.network.local_ratelimit, envoy.filters.network.mongo_proxy, envoy.filters.network.ratelimit, envoy.filters.network.rbac, envoy.filters.network.redis_proxy, envoy.filters.network.sni_cluster, envoy.filters.network.sni_dynamic_forward_proxy, envoy.filters.network.tcp_proxy, envoy.filters.network.thrift_proxy, envoy.filters.network.wasm, envoy.filters.network.zookeeper_proxy, envoy.http_connection_manager, envoy.mongo_proxy, envoy.ratelimit, envoy.redis_proxy, envoy.tcp_proxy
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.udp_packet_writer: envoy.udp_packet_writer.default, envoy.udp_packet_writer.gso
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.common.key_value: envoy.key_value.file_based
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.regex_engines: envoy.regex_engines.google_re2
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.retry_priorities: envoy.retry_priorities.previous_priorities
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.upstreams: envoy.filters.connection_pools.tcp.generic
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.wasm.runtime: envoy.wasm.runtime.null, envoy.wasm.runtime.v8
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.http.stateful_header_formatters: envoy.http.stateful_header_formatters.preserve_case, preserve_case
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.filters.http.upstream: envoy.buffer, envoy.filters.http.admission_control, envoy.filters.http.buffer, envoy.filters.http.upstream_codec
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.route.early_data_policy: envoy.route.early_data_policy.default
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.guarddog_actions: envoy.watchdog.abort_action, envoy.watchdog.profile_action
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.http.header_validators: envoy.http.header_validators.envoy_default
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.network.dns_resolver: envoy.network.dns_resolver.cares, envoy.network.dns_resolver.getaddrinfo
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.http.custom_matchers: envoy.matching.custom_matchers.trie_matcher
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.access_loggers.extension_filters: envoy.access_loggers.extension_filters.cel
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.dubbo_proxy.serializers: dubbo.hessian2
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.quic.server.crypto_stream: envoy.quic.crypto_stream.server.quiche
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.path.rewrite: envoy.path.rewrite.uri_template.uri_template_rewriter
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.network.custom_matchers: envoy.matching.custom_matchers.trie_matcher
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.filters.udp_listener: envoy.filters.udp.dns_filter, envoy.filters.udp_listener.udp_proxy
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.action: composite-action, skip
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.http.cache: envoy.extensions.http.cache.simple
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.compression.compressor: envoy.compression.brotli.compressor, envoy.compression.gzip.compressor, envoy.compression.zstd.compressor
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.access_loggers: envoy.access_loggers.file, envoy.access_loggers.http_grpc, envoy.access_loggers.open_telemetry, envoy.access_loggers.stderr, envoy.access_loggers.stdout, envoy.access_loggers.tcp_grpc, envoy.access_loggers.wasm, envoy.file_access_log, envoy.http_grpc_access_log, envoy.open_telemetry_access_log, envoy.stderr_access_log, envoy.stdout_access_log, envoy.tcp_grpc_access_log, envoy.wasm_access_log
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.resolvers: envoy.ip
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.input_matchers: envoy.matching.matchers.consistent_hashing, envoy.matching.matchers.ip
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.filters.http: envoy.bandwidth_limit, envoy.buffer, envoy.cors, envoy.csrf, envoy.ext_authz, envoy.ext_proc, envoy.fault, envoy.filters.http.adaptive_concurrency, envoy.filters.http.admission_control, envoy.filters.http.alternate_protocols_cache, envoy.filters.http.aws_lambda, envoy.filters.http.aws_request_signing, envoy.filters.http.bandwidth_limit, envoy.filters.http.buffer, envoy.filters.http.cache, envoy.filters.http.cdn_loop, envoy.filters.http.composite, envoy.filters.http.compressor, envoy.filters.http.cors, envoy.filters.http.csrf, envoy.filters.http.decompressor, envoy.filters.http.dynamic_forward_proxy, envoy.filters.http.ext_authz, envoy.filters.http.ext_proc, envoy.filters.http.fault, envoy.filters.http.file_system_buffer, envoy.filters.http.gcp_authn, envoy.filters.http.grpc_http1_bridge, envoy.filters.http.grpc_http1_reverse_bridge, envoy.filters.http.grpc_json_transcoder, envoy.filters.http.grpc_stats, envoy.filters.http.grpc_web, envoy.filters.http.header_to_metadata, envoy.filters.http.health_check, envoy.filters.http.ip_tagging, envoy.filters.http.jwt_authn, envoy.filters.http.local_ratelimit, envoy.filters.http.lua, envoy.filters.http.match_delegate, envoy.filters.http.oauth2, envoy.filters.http.on_demand, envoy.filters.http.original_src, envoy.filters.http.ratelimit, envoy.filters.http.rbac, envoy.filters.http.router, envoy.filters.http.set_metadata, envoy.filters.http.stateful_session, envoy.filters.http.tap, envoy.filters.http.wasm, envoy.grpc_http1_bridge, envoy.grpc_json_transcoder, envoy.grpc_web, envoy.health_check, envoy.ip_tagging, envoy.local_rate_limit, envoy.lua, envoy.rate_limit, envoy.router
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.tls.cert_validator: envoy.tls.cert_validator.default, envoy.tls.cert_validator.spiffe
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.bootstrap: envoy.bootstrap.internal_listener, envoy.bootstrap.wasm, envoy.extensions.network.socket_interface.default_socket_interface
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.request_id: envoy.request_id.uuid
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.thrift_proxy.filters: envoy.filters.thrift.header_to_metadata, envoy.filters.thrift.rate_limit, envoy.filters.thrift.router
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.resource_monitors: envoy.resource_monitors.fixed_heap, envoy.resource_monitors.injected_resource
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.path.match: envoy.path.match.uri_template.uri_template_matcher
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.matching.network.input: envoy.matching.inputs.application_protocol, envoy.matching.inputs.destination_ip, envoy.matching.inputs.destination_port, envoy.matching.inputs.direct_source_ip, envoy.matching.inputs.dns_san, envoy.matching.inputs.server_name, envoy.matching.inputs.source_ip, envoy.matching.inputs.source_port, envoy.matching.inputs.source_type, envoy.matching.inputs.subject, envoy.matching.inputs.transport_protocol, envoy.matching.inputs.uri_san
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.internal_redirect_predicates: envoy.internal_redirect_predicates.allow_listed_routes, envoy.internal_redirect_predicates.previous_routes, envoy.internal_redirect_predicates.safe_cross_scheme
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.rate_limit_descriptors: envoy.rate_limit_descriptors.expr
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.dubbo_proxy.filters: envoy.filters.dubbo.router
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.thrift_proxy.transports: auto, framed, header, unframed
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.clusters: envoy.cluster.eds, envoy.cluster.logical_dns, envoy.cluster.original_dst, envoy.cluster.static, envoy.cluster.strict_dns, envoy.clusters.aggregate, envoy.clusters.dynamic_forward_proxy, envoy.clusters.redis
+envoy-1         | [2024-06-11 12:19:43.188][1][info][main] [source/server/server.cc:395]   envoy.health_checkers: envoy.health_checkers.redis, envoy.health_checkers.thrift
+envoy-1         | [2024-06-11 12:19:43.196][1][warning][misc] [source/common/protobuf/message_validator_impl.cc:21] Deprecated field: type envoy.config.cluster.v3.Cluster Using deprecated option 'envoy.config.cluster.v3.Cluster.dns_resolvers' from file cluster.proto. This configuration will be removed from Envoy soon. Please see https://www.envoyproxy.io/docs/envoy/latest/version_history/version_history for details. If continued use of this field is absolutely necessary, see https://www.envoyproxy.io/docs/envoy/latest/configuration/operations/runtime#using-runtime-overrides-for-deprecated-features for how to apply a temporary and highly discouraged override.
+envoy-1         | [2024-06-11 12:19:43.196][1][warning][misc] [source/common/protobuf/message_validator_impl.cc:21] Deprecated field: type envoy.config.bootstrap.v3.Admin Using deprecated option 'envoy.config.bootstrap.v3.Admin.access_log_path' from file bootstrap.proto. This configuration will be removed from Envoy soon. Please see https://www.envoyproxy.io/docs/envoy/latest/version_history/version_history for details. If continued use of this field is absolutely necessary, see https://www.envoyproxy.io/docs/envoy/latest/configuration/operations/runtime#using-runtime-overrides-for-deprecated-features for how to apply a temporary and highly discouraged override.
+envoy-1         | [2024-06-11 12:19:43.196][1][info][main] [source/server/server.cc:443] HTTP header map info:
+envoy-1         | [2024-06-11 12:19:43.197][1][info][main] [source/server/server.cc:446]   request header map: 664 bytes: :authority,:method,:path,:protocol,:scheme,accept,accept-encoding,access-control-request-headers,access-control-request-method,access-control-request-private-network,authentication,authorization,cache-control,cdn-loop,connection,content-encoding,content-length,content-type,expect,grpc-accept-encoding,grpc-timeout,if-match,if-modified-since,if-none-match,if-range,if-unmodified-since,keep-alive,origin,pragma,proxy-connection,proxy-status,referer,te,transfer-encoding,upgrade,user-agent,via,x-client-trace-id,x-envoy-attempt-count,x-envoy-decorator-operation,x-envoy-downstream-service-cluster,x-envoy-downstream-service-node,x-envoy-expected-rq-timeout-ms,x-envoy-external-address,x-envoy-force-trace,x-envoy-hedge-on-per-try-timeout,x-envoy-internal,x-envoy-ip-tags,x-envoy-max-retries,x-envoy-original-path,x-envoy-original-url,x-envoy-retriable-header-names,x-envoy-retriable-status-codes,x-envoy-retry-grpc-on,x-envoy-retry-on,x-envoy-upstream-alt-stat-name,x-envoy-upstream-rq-per-try-timeout-ms,x-envoy-upstream-rq-timeout-alt-response,x-envoy-upstream-rq-timeout-ms,x-envoy-upstream-stream-duration-ms,x-forwarded-client-cert,x-forwarded-for,x-forwarded-host,x-forwarded-proto,x-ot-span-context,x-request-id
+envoy-1         | [2024-06-11 12:19:43.197][1][info][main] [source/server/server.cc:446]   request trailer map: 128 bytes: 
+envoy-1         | [2024-06-11 12:19:43.197][1][info][main] [source/server/server.cc:446]   response header map: 440 bytes: :status,access-control-allow-credentials,access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,access-control-allow-private-network,access-control-expose-headers,access-control-max-age,age,cache-control,connection,content-encoding,content-length,content-type,date,etag,expires,grpc-message,grpc-status,keep-alive,last-modified,location,proxy-connection,proxy-status,server,transfer-encoding,upgrade,vary,via,x-envoy-attempt-count,x-envoy-decorator-operation,x-envoy-degraded,x-envoy-immediate-health-check-fail,x-envoy-ratelimited,x-envoy-upstream-canary,x-envoy-upstream-healthchecked-cluster,x-envoy-upstream-service-time,x-request-id
+envoy-1         | [2024-06-11 12:19:43.197][1][info][main] [source/server/server.cc:446]   response trailer map: 152 bytes: grpc-message,grpc-status
+envoy-1         | [2024-06-11 12:19:43.205][1][info][main] [source/server/server.cc:798] runtime: {}
+envoy-1         | [2024-06-11 12:19:43.208][1][info][admin] [source/server/admin/admin.cc:67] admin address: 127.0.0.1:9901
+envoy-1         | [2024-06-11 12:19:43.210][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:561] c-ares library initialized.
+envoy-1         | [2024-06-11 12:19:43.214][1][info][config] [source/server/configuration_impl.cc:131] loading tracing configuration
+envoy-1         | [2024-06-11 12:19:43.214][1][info][config] [source/server/configuration_impl.cc:91] loading 0 static secret(s)
+envoy-1         | [2024-06-11 12:19:43.214][1][info][config] [source/server/configuration_impl.cc:97] loading 1 cluster(s)
+envoy-1         | [2024-06-11 12:19:43.217][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:107] starting async DNS resolution for run.mocky.io
+envoy-1         | [2024-06-11 12:19:43.217][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:354] dns resolution for run.mocky.io started
+envoy-1         | [2024-06-11 12:19:43.217][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.217][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:115] cm init: adding: cluster=greeter_service primary=1 secondary=0
+envoy-1         | [2024-06-11 12:19:43.217][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:169] maybe finish initialize state: 1
+envoy-1         | [2024-06-11 12:19:43.217][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:178] maybe finish initialize primary init clusters empty: false
+envoy-1         | [2024-06-11 12:19:43.217][1][info][config] [source/server/configuration_impl.cc:101] loading 1 listener(s)
+envoy-1         | [2024-06-11 12:19:43.221][1][info][config] [source/server/configuration_impl.cc:113] loading stats configuration
+envoy-1         | [2024-06-11 12:19:43.223][1][info][main] [source/server/server.cc:894] starting main dispatch loop
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 4994 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 4994 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 11
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.223][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:19:43.224][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:20:03.226][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:20:43.222][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 3 milliseconds
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 2 times
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:275] dns resolution for run.mocky.io completed with status 1
+envoy-1         | [2024-06-11 12:20:43.234][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:115] async DNS resolution complete for run.mocky.io
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][upstream] [source/common/upstream/strict_dns_cluster.cc:187] DNS refresh rate reset for run.mocky.io, (failure) refresh rate 5000 ms
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][upstream] [source/common/upstream/upstream_impl.cc:1340] initializing Primary cluster greeter_service completed
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.234][1][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in main_thread
+envoy-1         | [2024-06-11 12:20:43.234][1][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in main_thread
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:149] cm init: init complete: cluster=greeter_service primary=0 secondary=0
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:169] maybe finish initialize state: 1
+envoy-1         | [2024-06-11 12:20:43.234][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:178] maybe finish initialize primary init clusters empty: true
+envoy-1         | [2024-06-11 12:20:43.235][1][info][runtime] [source/common/runtime/runtime_impl.cc:463] RTDS has finished initialization
+envoy-1         | [2024-06-11 12:20:43.235][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:244] continue initializing secondary clusters
+envoy-1         | [2024-06-11 12:20:43.235][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:169] maybe finish initialize state: 2
+envoy-1         | [2024-06-11 12:20:43.235][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:178] maybe finish initialize primary init clusters empty: true
+envoy-1         | [2024-06-11 12:20:43.235][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:193] maybe finish initialize secondary init clusters empty: true
+envoy-1         | [2024-06-11 12:20:43.235][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:220] maybe finish initialize cds api ready: false
+envoy-1         | [2024-06-11 12:20:43.235][1][info][upstream] [source/common/upstream/cluster_manager_impl.cc:226] cm init: all clusters initialized
+envoy-1         | [2024-06-11 12:20:43.235][1][info][main] [source/server/server.cc:875] all clusters initialized. initializing init manager
+envoy-1         | [2024-06-11 12:20:43.235][1][info][config] [source/server/listener_manager_impl.cc:831] all dependencies initialized. starting workers
+envoy-1         | [2024-06-11 12:20:43.236][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.236][14][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_0
+envoy-1         | [2024-06-11 12:20:43.236][14][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_0
+envoy-1         | [2024-06-11 12:20:43.237][16][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.237][16][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_2
+envoy-1         | [2024-06-11 12:20:43.237][16][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_2
+envoy-1         | [2024-06-11 12:20:43.237][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.237][15][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_1
+envoy-1         | [2024-06-11 12:20:43.237][15][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_1
+envoy-1         | [2024-06-11 12:20:43.237][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.237][24][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.237][23][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.237][23][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_6
+envoy-1         | [2024-06-11 12:20:43.237][23][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_6
+envoy-1         | [2024-06-11 12:20:43.237][24][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_7
+envoy-1         | [2024-06-11 12:20:43.237][24][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_7
+envoy-1         | [2024-06-11 12:20:43.237][19][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_4
+envoy-1         | [2024-06-11 12:20:43.237][19][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_4
+envoy-1         | [2024-06-11 12:20:43.238][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.238][17][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_3
+envoy-1         | [2024-06-11 12:20:43.238][17][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_3
+envoy-1         | [2024-06-11 12:20:43.293][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1101] adding TLS cluster greeter_service
+envoy-1         | [2024-06-11 12:20:43.293][22][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:35] cm cdm: starting processing cluster name greeter_service (status 2) from cluster lifecycle callback in worker_5
+envoy-1         | [2024-06-11 12:20:43.293][22][trace][upstream] [source/common/upstream/cluster_discovery_manager.cc:45] cm cdm: no callbacks for the cluster name greeter_service in worker_5
+envoy-1         | [2024-06-11 12:20:43.293][1][warning][main] [source/server/server.cc:773] there is no configured limit to the number of allowed active connections. Set a limit via the runtime key overload.global_downstream_max_connections
+envoy-1         | [2024-06-11 12:20:48.232][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:107] starting async DNS resolution for run.mocky.io
+envoy-1         | [2024-06-11 12:20:48.232][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:354] dns resolution for run.mocky.io started
+envoy-1         | [2024-06-11 12:20:48.233][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:20:53.236][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:21:03.233][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 3 milliseconds
+envoy-1         | [2024-06-11 12:21:03.243][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:21:11.949][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:21:11.948Z] "GET / HTTP/1.1" 503 UH 0 19 1 - "-" "curl/8.6.0" "ff495418-14d5-495c-8432-ce8f85d0fd73" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:21:23.254][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:22:03.254][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:22:03.254][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:22:03.255][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:22:08.260][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:22:18.254][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 6 milliseconds
+envoy-1         | [2024-06-11 12:22:18.268][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:22:38.272][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:23:18.278][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:23:18.278][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:23:18.278][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:275] dns resolution for run.mocky.io completed with status 1
+envoy-1         | [2024-06-11 12:23:18.278][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:115] async DNS resolution complete for run.mocky.io
+envoy-1         | [2024-06-11 12:23:18.278][1][debug][upstream] [source/common/upstream/strict_dns_cluster.cc:187] DNS refresh rate reset for run.mocky.io, (failure) refresh rate 5000 ms
+envoy-1         | [2024-06-11 12:23:23.279][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:107] starting async DNS resolution for run.mocky.io
+envoy-1         | [2024-06-11 12:23:23.279][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:354] dns resolution for run.mocky.io started
+envoy-1         | [2024-06-11 12:23:23.280][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:23:28.276][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 4 milliseconds
+envoy-1         | [2024-06-11 12:23:28.285][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:23:38.290][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 19999 milliseconds
+envoy-1         | [2024-06-11 12:23:58.284][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 3 milliseconds
+envoy-1         | [2024-06-11 12:23:58.295][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:24:38.298][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:24:38.299][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:24:38.300][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:24:43.297][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 2 milliseconds
+envoy-1         | [2024-06-11 12:24:43.303][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:24:52.719][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:24:52.718Z] "GET / HTTP/1.1" 503 UH 0 19 1 - "-" "curl/8.6.0" "19fe097a-6953-4582-a8cf-65090599e81e" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:24:53.310][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:25:13.311][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:25:24.403][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:25.346][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:26.035][23][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:26.797][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:27.601][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:28.396][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:29.125][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:29.848][23][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:30.563][24][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:31.352][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:32.271][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:33.183][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:25:24.402Z] "GET / HTTP/1.1" 503 UH 0 19 1 - "-" "curl/8.6.0" "2b4eee8a-7b89-4893-9406-2f252623db32" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:25.346Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "985d8649-4a06-44dd-9694-692921673ee0" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:26.035Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "21e651dd-52c3-40dc-a54c-5d5a080718f6" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:26.797Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "28fb9101-cb4f-46c0-903a-781d4e81360e" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:27.601Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "45c36f97-ab83-4787-9d98-12d8fb114697" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:28.396Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "16886dee-3e66-4208-a35f-3f18c1c7d7ba" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:29.125Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "94bd0414-cb6b-469a-bd8d-e5653d064518" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:29.848Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "003667e2-ef0f-43b2-9490-ccc5455e663d" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:30.563Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "3b3098f2-6586-49bf-8f05-448857da1fe3" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:31.352Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "70173b83-e66f-468c-bba6-61fbd141374f" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:32.271Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "ff818e4b-cd1e-49a2-ba6d-68055a343033" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:33.183Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "69ef7949-4938-4821-acce-230821ea9af3" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:25:34.004][16][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:34.822][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:35.537][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:36.328][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:37.030][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:37.729][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:25:38.451][23][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:25:34.004Z] "GET / HTTP/1.1" 503 UH 0 19 7 - "-" "curl/8.6.0" "46e7e753-1669-4452-8fcb-296ca5a51eeb" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:34.822Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "c5c9b816-bc6d-4209-bfbd-34f50aebeeb9" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:35.537Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "47a03c3d-9290-495f-9bea-46fadf81592b" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:36.328Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "0b4b097c-082f-4d28-9f84-03bebb5c2d3d" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:37.030Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "b091df1d-d79e-472c-a0a6-18f0e3df2385" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:37.729Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "87c70950-6c98-4fd0-b265-d940aaab7c05" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:25:38.451Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "161215d9-6944-419b-9d75-08b6c216affc" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:25:53.304][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 6 milliseconds
+envoy-1         | [2024-06-11 12:25:53.316][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:25:53.316][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:25:53.316][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:275] dns resolution for run.mocky.io completed with status 1
+envoy-1         | [2024-06-11 12:25:53.316][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:115] async DNS resolution complete for run.mocky.io
+envoy-1         | [2024-06-11 12:25:53.316][1][debug][upstream] [source/common/upstream/strict_dns_cluster.cc:187] DNS refresh rate reset for run.mocky.io, (failure) refresh rate 5000 ms
+envoy-1         | [2024-06-11 12:25:58.323][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:107] starting async DNS resolution for run.mocky.io
+envoy-1         | [2024-06-11 12:25:58.323][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:354] dns resolution for run.mocky.io started
+envoy-1         | [2024-06-11 12:25:58.324][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:26:02.055][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:26:02.054Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "b509607d-0180-4f11-9ef9-550f7a0e2e85" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:26:03.330][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:26:13.323][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 7 milliseconds
+envoy-1         | [2024-06-11 12:26:13.338][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:26:33.344][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:27:08.844][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:27:08.843Z] "GET / HTTP/1.1" 503 UH 0 19 1 - "-" "curl/8.6.0" "40609417-d70a-4c62-bb6c-e995615bb5b7" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:27:13.344][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:27:13.344][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:27:13.345][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:27:18.349][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:27:28.345][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 4 milliseconds
+envoy-1         | [2024-06-11 12:27:28.358][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:27:48.356][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 1 milliseconds
+envoy-1         | [2024-06-11 12:27:48.363][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+envoy-1         | [2024-06-11 12:28:28.372][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:28:28.373][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:28:28.373][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:275] dns resolution for run.mocky.io completed with status 1
+envoy-1         | [2024-06-11 12:28:28.373][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:115] async DNS resolution complete for run.mocky.io
+envoy-1         | [2024-06-11 12:28:28.373][1][debug][upstream] [source/common/upstream/strict_dns_cluster.cc:187] DNS refresh rate reset for run.mocky.io, (failure) refresh rate 5000 ms
+envoy-1         | [2024-06-11 12:28:33.373][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:107] starting async DNS resolution for run.mocky.io
+envoy-1         | [2024-06-11 12:28:33.373][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:354] dns resolution for run.mocky.io started
+envoy-1         | [2024-06-11 12:28:33.374][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:28:38.376][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+envoy-1         | [2024-06-11 12:28:48.383][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+envoy-1         | [2024-06-11 12:29:08.386][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+udpproxy.com-1 exited with code 0
+udpproxy.com-1  | ['Udp_Proxy established'] ['input port 14520 and forwards incoming messages to ports starting from 53']
+udpproxy.com-1  | Exception in thread Thread-1:
+udpproxy.com-1  | Traceback (most recent call last):
+udpproxy.com-1  |   File "/usr/local/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+udpproxy.com-1  |     self.run()
+udpproxy.com-1  |   File "/usr/local/lib/python3.12/threading.py", line 1431, in run
+udpproxy.com-1  |     self.function(*self.args, **self.kwargs)
+udpproxy.com-1  |   File "/usr/src/app/simple-udp-proxy.py", line 81, in thread_receive
+udpproxy.com-1  |     self.receive(self.BUF_SIZE)
+udpproxy.com-1  |   File "/usr/src/app/simple-udp-proxy.py", line 68, in receive
+udpproxy.com-1  |     data, addr = self.socket.recvfrom(buff_size)
+udpproxy.com-1  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+udpproxy.com-1  | BlockingIOError: [Errno 11] Resource temporarily unavailable
+envoy-1         | [2024-06-11 12:29:48.386][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 12
+envoy-1         | [2024-06-11 12:29:48.387][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 4 times
+envoy-1         | [2024-06-11 12:29:48.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 0 milliseconds
+envoy-1         | [2024-06-11 12:29:53.387][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+udpproxy.com-1 exited with code 0
+envoy-1         | [2024-06-11 12:30:03.383][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 4 milliseconds
+envoy-1         | [2024-06-11 12:30:03.393][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 20000 milliseconds
+udpproxy.com-1  | ['Udp_Proxy established'] ['input port 14520 and forwards incoming messages to ports starting from 53']
+envoy-1         | [2024-06-11 12:30:21.743][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:30:22.489][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11 12:30:23.079][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1624] no healthy host for HTTP connection pool
+envoy-1         | [2024-06-11T12:30:21.742Z] "GET / HTTP/1.1" 503 UH 0 19 1 - "-" "curl/8.6.0" "89da0593-612e-43b4-b319-602974f66b92" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:30:22.489Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "f76091c9-796b-41a8-b43e-0e2eb38bbc30" "localhost:10000" "-"
+envoy-1         | [2024-06-11T12:30:23.079Z] "GET / HTTP/1.1" 503 UH 0 19 0 - "-" "curl/8.6.0" "5182fa10-5c81-4239-99da-97b417c7e2ec" "localhost:10000" "-"
+envoy-1         | [2024-06-11 12:30:23.395][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 40000 milliseconds
+udpproxy.com-1  | ['received a message from ', ('172.20.0.3', 58367), 'on', '2024-06-11 12:30:23'] ['data = ', b'\xad\xe2\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x01\x00\x01']
+udpproxy.com-1  | ['new pair'] [('172.20.0.3', 58367), ('8.8.8.8', 53)]
+udpproxy.com-1  | ['forwarded a message from ', ('172.20.0.3', 58367), 'into address of ', "('8.8.8.8', 53)", 'on', '2024-06-11 12:30:23'] ['data = ', b'\xad\xe2\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x01\x00\x01']
+udpproxy.com-1  | ['received a message from ', ('8.8.8.8', 53), 'on', '2024-06-11 12:30:23'] ['data = ', b'\xad\xe2\x81\x80\x00\x01\x00\n\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x01\x00\x01\xc0\x0c\x00\x05\x00\x01\x00\x00\x07\x07\x00\x1d\x06domain\x03par\x0cclever-cloud\x03com\x00\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd6\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd7\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04.\xfc\xb5g\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd8\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd9\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xda\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04.\xfc\xb5h\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04\xb9*um\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04\xb9*ul']
+envoy-1         | [2024-06-11 12:30:23.541][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:242] DNS request timed out 3 times
+envoy-1         | [2024-06-11 12:30:23.541][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:275] dns resolution for run.mocky.io completed with status 0
+envoy-1         | [2024-06-11 12:30:23.542][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:115] async DNS resolution complete for run.mocky.io
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 91.208.207.214:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 91.208.207.215:80
+udpproxy.com-1  | ['forwarded a message from ', ('8.8.8.8', 53), 'into address of ', "('172.20.0.3', 58367)", 'on', '2024-06-11 12:30:23'] ['data = ', b'\xad\xe2\x81\x80\x00\x01\x00\n\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x01\x00\x01\xc0\x0c\x00\x05\x00\x01\x00\x00\x07\x07\x00\x1d\x06domain\x03par\x0cclever-cloud\x03com\x00\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd6\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd7\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04.\xfc\xb5g\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd8\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xd9\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04[\xd0\xcf\xda\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04.\xfc\xb5h\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04\xb9*um\xc0*\x00\x01\x00\x01\x00\x00\x01,\x00\x04\xb9*ul']
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 46.252.181.103:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 91.208.207.216:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 91.208.207.217:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 91.208.207.218:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 46.252.181.104:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 185.42.117.109:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/upstream_impl.cc:351] transport socket match, socket default selected for host with address 185.42.117.108:80
+envoy-1         | [2024-06-11 12:30:23.542][1][debug][upstream] [source/common/upstream/strict_dns_cluster.cc:152] DNS hosts have changed for run.mocky.io
+envoy-1         | [2024-06-11 12:30:23.542][1][trace][upstream] [source/common/upstream/upstream_impl.cc:1668] Local locality: 
+envoy-1         | [2024-06-11 12:30:23.543][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][1][debug][upstream] [source/common/upstream/strict_dns_cluster.cc:180] DNS refresh rate reset for run.mocky.io, refresh rate 5000 ms
+envoy-1         | [2024-06-11 12:30:23.543][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][23][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][24][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][16][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.543][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1179] membership update for TLS cluster greeter_service added 9 removed 0
+envoy-1         | [2024-06-11 12:30:23.897][16][trace][upstream] [source/common/upstream/cluster_manager_impl.cc:1712] Erasing idle pool for host run.mocky.io
+envoy-1         | [2024-06-11 12:30:23.897][16][trace][upstream] [source/common/upstream/cluster_manager_impl.cc:1719] Pool container empty for host run.mocky.io, erasing host entry
+envoy-1         | [2024-06-11 12:30:28.537][1][trace][upstream] [source/common/upstream/strict_dns_cluster.cc:107] starting async DNS resolution for run.mocky.io
+envoy-1         | [2024-06-11 12:30:28.537][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:354] dns resolution for run.mocky.io started
+envoy-1         | [2024-06-11 12:30:28.538][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 5000 milliseconds
+udpproxy.com-1  | ['received a message from ', ('172.20.0.3', 54233), 'on', '2024-06-11 12:30:28'] ['data = ', b'Y\xaa\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01']
+udpproxy.com-1  | ['new pair'] [('172.20.0.3', 54233), ('8.8.8.8', 53)]
+udpproxy.com-1  | ['forwarded a message from ', ('172.20.0.3', 54233), 'into address of ', "('8.8.8.8', 53)", 'on', '2024-06-11 12:30:28'] ['data = ', b'Y\xaa\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01']
+udpproxy.com-1  | ['received a message from ', ('8.8.8.8', 53), 'on', '2024-06-11 12:30:28'] ['data = ', b"Y\xaa\x81\x80\x00\x01\x00\x01\x00\x01\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01\xc0\x0c\x00\x05\x00\x01\x00\x00\x02\x8e\x00\x1d\x06domain\x03par\x0cclever-cloud\x03com\x00\xc05\x00\x06\x00\x01\x00\x00\x02\x8f\x001\x06angela\x02ns\ncloudflare\xc0B\x03dns\xc0]\x8b\xa6D<\x00\x00'\x10\x00\x00\t`\x00\t:\x80\x00\x00\x07\x08"]
+udpproxy.com-1  | ['forwarded a message from ', ('8.8.8.8', 53), 'into address of ', "('172.20.0.3', 58367)", 'on', '2024-06-11 12:30:28'] ['data = ', b"Y\xaa\x81\x80\x00\x01\x00\x01\x00\x01\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01\xc0\x0c\x00\x05\x00\x01\x00\x00\x02\x8e\x00\x1d\x06domain\x03par\x0cclever-cloud\x03com\x00\xc05\x00\x06\x00\x01\x00\x00\x02\x8f\x001\x06angela\x02ns\ncloudflare\xc0B\x03dns\xc0]\x8b\xa6D<\x00\x00'\x10\x00\x00\t`\x00\t:\x80\x00\x00\x07\x08"]
+envoy-1         | [2024-06-11T12:30:23.642Z] "GET / HTTP/1.1" 503 UF 0 91 254 - "-" "curl/8.6.0" "6a3837da-da20-4264-8124-89b751a02f32" "localhost:10000" "185.42.117.109:80"
+envoy-1         | [2024-06-11T12:30:24.752Z] "GET / HTTP/1.1" 200 - 0 13 407 407 "-" "curl/8.6.0" "56d09491-db07-4c7b-bc0a-bcf270b24e89" "run.mocky.io" "185.42.117.108:80"
+envoy-1         | [2024-06-11 12:30:33.536][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 1 milliseconds
+envoy-1         | [2024-06-11 12:30:33.542][1][trace][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:317] Setting DNS resolution timer for 10000 milliseconds
+udpproxy.com-1  | ['received a message from ', ('172.20.0.3', 54233), 'on', '2024-06-11 12:30:33'] ['data = ', b'Y\xaa\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01']
+udpproxy.com-1  | ['forwarded a message from ', ('172.20.0.3', 54233), 'into address of ', "('8.8.8.8', 53)", 'on', '2024-06-11 12:30:33'] ['data = ', b'Y\xaa\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01']
+udpproxy.com-1  | ['received a message from ', ('8.8.8.8', 53), 'on', '2024-06-11 12:30:33'] ['data = ', b"Y\xaa\x81\x80\x00\x01\x00\x01\x00\x01\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01\xc0\x0c\x00\x05\x00\x01\x00\x00\x02\x89\x00\x1d\x06domain\x03par\x0cclever-cloud\x03com\x00\xc05\x00\x06\x00\x01\x00\x00\x02\x8a\x001\x06angela\x02ns\ncloudflare\xc0B\x03dns\xc0]\x8b\xa6D<\x00\x00'\x10\x00\x00\t`\x00\t:\x80\x00\x00\x07\x08"]
+udpproxy.com-1  | ['forwarded a message from ', ('8.8.8.8', 53), 'into address of ', "('172.20.0.3', 58367)", 'on', '2024-06-11 12:30:33'] ['data = ', b"Y\xaa\x81\x80\x00\x01\x00\x01\x00\x01\x00\x00\x03run\x05mocky\x02io\x00\x00\x1c\x00\x01\xc0\x0c\x00\x05\x00\x01\x00\x00\x02\x89\x00\x1d\x06domain\x03par\x0cclever-cloud\x03com\x00\xc05\x00\x06\x00\x01\x00\x00\x02\x8a\x001\x06angela\x02ns\ncloudflare\xc0B\x03dns\xc0]\x8b\xa6D<\x00\x00'\x10\x00\x00\t`\x00\t:\x80\x00\x00\x07\x08"]
+envoy-1         | [2024-06-11 12:30:37.844][1][warning][main] [source/server/server.cc:833] caught ENVOY_SIGTERM
+envoy-1         | [2024-06-11 12:30:37.844][1][info][main] [source/server/server.cc:964] shutting down server instance
+envoy-1         | [2024-06-11 12:30:37.844][1][info][main] [source/server/server.cc:899] main dispatch loop exited
+envoy-1         | [2024-06-11 12:30:37.845][14][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.845][15][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.846][16][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.847][17][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.848][19][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.852][22][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.853][23][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.853][24][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.854][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:153] dns resolution for run.mocky.io failed with c-ares status 16
+envoy-1         | [2024-06-11 12:30:37.854][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:170] dns resolution for run.mocky.io destroyed
+envoy-1         | [2024-06-11 12:30:37.854][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:275] dns resolution for run.mocky.io completed with status 1
+envoy-1         | [2024-06-11 12:30:37.854][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:302] dns resolution callback for run.mocky.io not issued. Cancelled with reason=0
+envoy-1         | [2024-06-11 12:30:37.856][1][debug][upstream] [source/common/upstream/cluster_manager_impl.cc:1401] shutting down thread local cluster manager
+envoy-1         | [2024-06-11 12:30:37.857][1][trace][upstream] [source/common/upstream/upstream_impl.cc:1215] Schedule destroy cluster info greeter_service
+envoy-1         | [2024-06-11 12:30:37.857][1][info][main] [source/server/server.cc:951] exiting
+envoy-1         | [2024-06-11 12:30:37.872][1][debug][dns] [source/extensions/network/dns_resolver/cares/dns_impl.cc:570] c-ares library cleaned up.
+envoy-1 exited with code 0
+greeterbe-1 exited with code 0
+debugtools-1 exited with code 0
+udpproxy.com-1 exited with code 0

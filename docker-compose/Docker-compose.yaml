@@ -2,6 +2,8 @@ version: '3'
 services:
   udpproxy.com:
     image: vsalaka/simple_udp_proxy:latest
+    volumes:
+      - /Users/viraj/udp-proxy/simple_udp_proxy/simple_udp_proxy/simple_udp_proxy.py:/usr/src/app/simple-udp-proxy.py
     networks:
       mynetwork:
         ipv4_address: 172.20.0.6
@@ -14,12 +16,21 @@ services:
     networks:
       mynetwork:
         ipv4_address: 172.20.0.5
+  tcpdump:
+    image: nicolaka/netshoot
+    depends_on:
+      - envoy
+    command: tcpdump -i eth0 -w /data/envoy.pcap -n udp
+    network_mode: service:envoy
+    volumes:
+      - $PWD/data:/data      
   envoy:
-    image: envoyproxy/envoy:v1.24.7
-    command: -c /etc/envoy/envoy.yaml -l trace
-    # command: -c /etc/envoy/envoy.yaml --component-log-level conn_handler:trace,connection:trace,client:trace
+    image: envoyproxy/envoy:v1.30.2
+    # command: -c /etc/envoy/envoy.yaml -l trace
+    command: -c /etc/envoy/envoy.yaml --component-log-level dns:trace,upstream:trace --concurrency 2
     volumes:
       - ./envoy/envoy.yaml:/etc/envoy/envoy.yaml
+      - ./envoy/resolv.conf:/etc/resolv.conf
     ports:
       - "10000:9080"
       - "9901:9901"
